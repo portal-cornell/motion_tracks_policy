@@ -90,6 +90,21 @@ pre code {
   font-variant: small-caps;
 }
 
+.intro-video {
+  width: 80%; /* Adjust the width as needed */
+  height: auto; 
+  display: block;
+  margin: 0 auto;
+}
+
+.method-video {
+  width: 60%; /* Adjust the width as needed */
+  height: auto; 
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
 .teaser .hero-body {
   padding-top: 0;
 }
@@ -100,8 +115,8 @@ pre code {
 
 .teaser video {
   object-fit: fill;
-  
 }
+
 #glass{
   margin-left: -10px;
 }

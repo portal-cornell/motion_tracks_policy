@@ -67,6 +67,28 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
     document.getElementById("carousel-rollout").playbackRate=0.7;
-    // document.getElementById("single-task-result-video").playbackRate = 0.5;
-    // document.getElementById("multi-task-result-video").playbackRate = 0.5;
+    document.getElementById("teaser-video").playbackRate=0.7;
+    document.getElementById("system-overview-video").playbackRate=0.7;
+
+    // Intersection Observer for lazy loading videos
+    const videos = document.querySelectorAll("video");
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.25 // Adjust as needed
+    };
+
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          video.play();
+          observer.unobserve(video); // Stop observing once the video starts playing
+        }
+      });
+    }, observerOptions);
+
+    videos.forEach(video => {
+      videoObserver.observe(video);
+    });
 });

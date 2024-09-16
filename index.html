@@ -114,15 +114,15 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered  is-centered">
-          <video id="teaser" autoplay muted loop height="100%">
-            <!-- <source src="media/intro/sim_rolling_v2.mp4"
-                    type="video/mp4"> -->
+          <video id="teaser" class="intro-video" autoplay muted loop height="100%" >
+            <source src="media/builds/intro.mp4"
+                    type="video/mp4">
           </video>
           </br>
         </div>
         <br>
         <h2 class="subtitle has-text-centered">
-        <span class="dmtpi">Motion-Track Policy (MT-&pi;)</span> 
+        <span class="dmtpi">Motion-Track Policy</span> (MT-<i>&pi;</i>)
         presents a <b>unified action space</b> by representing actions as <b>2D trajectories</b> on an image, <br> enabling it to directly imitate from <b>cross-embodiment datasets</b> with minimal amounts of robot demonstrations.
         </h2>
       </div>
@@ -139,7 +139,7 @@
         <!-- Fold -->
         <div class="item">
           <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
-            <source src="media/rollouts/fold.mp4"
+            <source src="media/rollouts/fold_with_text.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -147,7 +147,7 @@
         <!-- Egg -->
         <div class="item">
           <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
-            <source src="media/rollouts/serve_egg.mp4"
+            <source src="media/rollouts/serve_egg_with_text.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -155,7 +155,7 @@
         <!-- Socks -->
         <div class="item">
           <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
-            <source src="media/rollouts/socks.mp4"
+            <source src="media/rollouts/socks_with_text.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -163,7 +163,7 @@
         <!-- Drawer -->
         <div class="item">
           <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
-            <source src="media/rollouts/drawer.mp4"
+            <source src="media/rollouts/drawer_with_text.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -171,7 +171,7 @@
         <!-- Fork -->
         <div class="item">
           <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
-            <source src="media/rollouts/fork.mp4"
+            <source src="media/rollouts/fork_with_text.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -183,15 +183,22 @@
 </section>
 <h2 class="subtitle has-text-centered">
 </br>
-  TODO
-  <!-- We also train <b>one multi-task Transformer from scratch</b> on 7 real-world tasks with just <b>53 demos</b> in total. -->
+  We evaluate MT-<i>&pi;</i> across a suite of real-world tasks testing its robustness in policy execution <br>
+  and ability to generalize to scenes and motions only present in human demonstrations. 
 </h2>
+
+<!-- let's def put videos of each task, and also videos of baselines
+a little overview of our method with videos/animations:
+data collection videos: human/robot vids & maybe some of the vis_outs of human hand videos to show grasp detection/hamer
+action inference/execution: i can make some blender animations of triangulation & stuff (will get to this late in the week though)
+failure mode videos
+code link -->
 
 <hr>
 
+<!-- Abstract. -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -219,10 +226,7 @@
         </div>
       </div>
     </div>
-    <br>
-    <br>
     <!--/ Abstract. -->
-
   </div>
 
   <!-- Paper video. -->
@@ -233,10 +237,37 @@
         <iframe src="https://www.youtube.com/embed/TB0g52N-3_Y?rel=0&amp;showinfo=0"
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
-    </div> -->
-  </div>
+    </div>
+  </div> -->
 
 </section>
+
+<hr>
+<!-- System Overview -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">System Overview</h2>
+        <div class="columns is-vcentered is-centered">
+          <video id="system-overview-video" class="method-video" autoplay muted loop>
+            <source src="media/builds/method.mp4" type="video/mp4">
+          </video>
+          </br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+<!-- Data Collection -->
+
+<hr>
+<!-- Inference -->
+
+<hr>
+<!-- Experiment Results -->
 
 <footer class="footer">
   <div class="container">
