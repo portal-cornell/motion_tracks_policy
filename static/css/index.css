@@ -86,11 +86,7 @@ pre code {
     margin-bottom: 5px;
 }
 
-.dnerf {
-  font-variant: small-caps;
-}
-
-.dperact {
+.dmtpi {
   font-variant: small-caps;
 }
 
@@ -200,12 +196,10 @@ pre code {
   overflow: hidden;
 }
 
-
 .results-carousel .item {
   height: 90%;
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #bbb;
   border-radius: 10px;
   padding: 0;
   font-size: 0;

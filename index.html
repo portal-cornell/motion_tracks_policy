@@ -10,20 +10,19 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./assets/css/index.css">
-  <link rel="icon" href="./assets/images/icon.jpg">
+  <link rel="stylesheet" href="./static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./assets/js/all.min.js"></script>
-  <script src="./assets/js/bulma-carousel.min.js"></script>
-  <script src="./assets/js/bulma-slider.min.js"></script>
-  <script src="./assets/js/index.js"></script>
+  <script defer src="./static/js/all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
 
@@ -63,12 +62,13 @@
           </div>
 
           <br>
-          <img src="./assets/logos/cornell.png" width="20%"></img>
-          <img src="./assets/logos/stanford.png" width="15%"></img>
+          <img src="./media/logos/cornell.png" width="20%"></img>
+          <img src="./media/logos/stanford.png" width="15%"></img>
 
           <div class="column has-text-centered">
             
             <div class="publication-links">
+
               <!-- PDF Link. -->
               <span class="link-block">
                 <a href=""
@@ -79,6 +79,8 @@
                   <span>Paper (Coming Soon)</span>
                 </a>
               </span>
+
+              <!-- Code Link. -->
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -97,6 +99,126 @@
   </div>
 </section>
 
+<!-- Title Card + Caption -->
+<section class="hero teaser"></section>
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <video id="teaser" autoplay muted loop height="100%">
+            <!-- <source src="media/intro/sim_rolling_v2.mp4"
+                    type="video/mp4"> -->
+          </video>
+          </br>
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+        <span class="dmtpi">Motion-Track Policy (MT-&pi;)</span> 
+        presents a <b>unified action space</b> by representing actions as <b>2D trajectories</b> on an image, <br> enabling it to directly imitate from <b>cross-embodiment datasets</b> with minimal amounts of robot demonstrations.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Carousel -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <!-- Fold -->
+        <div class="item ">
+          <video poster="" id="" autoplay muted loop height="100%">
+            <source src="media/rollouts/fold.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Socks -->
+        <div class="item ">
+          <video poster="" id="" autoplay muted loop height="100%">
+            <source src="media/rollouts/socks.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Fork -->
+        <div class="item ">
+          <video poster="" id="" autoplay muted loop height="100%">
+            <source src="media/rollouts/fork.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Egg -->
+        <div class="item ">
+          <video poster="" id="" autoplay muted loop height="100%">
+            <source src="media/rollouts/serve_egg.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<h2 class="subtitle has-text-centered">
+</br>
+  TODO
+  <!-- We also train <b>one multi-task Transformer from scratch</b> on 7 real-world tasks with just <b>53 demos</b> in total. -->
+</h2>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              Teaching robots to autonomously complete everyday tasks remains a persistent challenge. 
+              Imitation learning (IL) is a powerful approach that imbues robots with skills via demonstrations, 
+              but is limited by the slow, labor-intensive process of collecting teleoperated robot data. 
+              Human videos offer a scalable alternative, but it remains difficult to directly train IL policies 
+              from them due to the lack of robot action labels. To address this, we propose to represent actions 
+              as short-horizon 2D trajectories on an image. These actions, or <em>motion tracks</em>, capture the 
+              predicted direction of motion for either human hands or robot end-effectors. 
+            </p>
+            <p>
+              We instantiate an IL 
+              policy called Motion Track Policy (MT&#x2011;<i>&pi;</i>) which receives image observations and outputs 
+              motion tracks as actions. By leveraging this unified, cross-embodiment action space, 
+              MT&#x2011;<i>&pi;</i> completes tasks with high success given 
+              just minutes of human video and limited additional robot demonstrations. At test time, we predict 
+              motion tracks from two camera views, recovering full 6DoF trajectories via multi-view synthesis. 
+              MT&#x2011;<i>&pi;</i> achieves an average success rate of 86.5% 
+              across 4 real-world tasks, outperforming state-of-the-art IL baselines which do not leverage human 
+              data or our action space by 40%, and generalizes to novel scenarios seen only in human videos. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!--/ Abstract. -->
+
+  </div>
+
+  <!-- Paper video. -->
+  <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-3">Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/TB0g52N-3_Y?rel=0&amp;showinfo=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div> -->
+  </div>
+
+</section>
 
 <footer class="footer">
   <div class="container">
@@ -105,7 +227,7 @@
         <div class="content has-text-centered">
           <p>
             Website template borrowed from <a
-              href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+              href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>.
           </p>
         </div>
       </div>
