@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9NEKBWDGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-C9NEKBWDGS');
+  </script>
+
   <meta charset="utf-8">
   <meta name="description"
         content="Motion Tracks: A Unified Representation for Human-Robot Transfer in Few-Shot Imitation Learning">
@@ -128,36 +137,45 @@
       <div id="results-carousel" class="carousel results-carousel">
 
         <!-- Fold -->
-        <div class="item ">
-          <video poster="" id="" autoplay muted loop height="100%">
+        <div class="item">
+          <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
             <source src="media/rollouts/fold.mp4"
                     type="video/mp4">
           </video>
         </div>
 
+        <!-- Egg -->
+        <div class="item">
+          <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
+            <source src="media/rollouts/serve_egg.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
         <!-- Socks -->
-        <div class="item ">
-          <video poster="" id="" autoplay muted loop height="100%">
+        <div class="item">
+          <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
             <source src="media/rollouts/socks.mp4"
                     type="video/mp4">
           </video>
         </div>
 
+        <!-- Drawer -->
+        <div class="item">
+          <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
+            <source src="media/rollouts/drawer.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
         <!-- Fork -->
-        <div class="item ">
-          <video poster="" id="" autoplay muted loop height="100%">
+        <div class="item">
+          <video poster="" id="carousel-rollout" autoplay muted loop height="100%">
             <source src="media/rollouts/fork.mp4"
                     type="video/mp4">
           </video>
         </div>
 
-        <!-- Egg -->
-        <div class="item ">
-          <video poster="" id="" autoplay muted loop height="100%">
-            <source src="media/rollouts/serve_egg.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
 
       </div>
     </div>
