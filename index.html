@@ -270,7 +270,7 @@ code link -->
 
     <!-- Video -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">System Overview</h2>
 
         <div class="columns is-vcentered is-centered">
@@ -283,7 +283,7 @@ code link -->
 
         <div class="content has-text-justified">
           <p>
-          ToDo
+            We co-train MT&#x2011;<i>&pi;</i> on human and robot demonstrations to predict the future pixel locations of keypoints on the end-effector (shown in red). For robot demonstrations, keypoints are extracted using calibrated camera-to-robot extrinsics, while human hand keypoints are obtained via <a href="https://geopavlakos.github.io/hamer/" target="_blank">HaMeR</a>. To address embodiment differences, a Keypoint Retargeting Network maps robot keypoints to more closely resemble the human hand structure. The Motion Prediction Network, based on Diffusion Policy, takes image embeddings and current keypoints as input and predicts future keypoint tracks and grasp states. By operating entirely in image space, MT&#x2011;<i>&pi;</i> directly learns actions from both robot and human demonstrations with a cross-embodiment action representation.
           </p>
         </div>
 
@@ -298,28 +298,31 @@ code link -->
   <div class="container is-max-desktop">
 
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Data Collection</h2>
 
         <!-- Extracting Motion Tracks -->
         <h3 class="title is-5">Extracting Motion Tracks</h3>
-          <video id="system-overview-video" class="data-video" autoplay muted loop>
+          <video id="system-overview-video" class="data-collection-video" autoplay muted loop>
             <source src="media/builds/tracks.mp4" type="video/mp4">
           </video>
         <div class="content has-text-justified">
           <p>
-          ToDo
+            To collect robot demonstrations, we assume access to a workspace with $\geq1$ calibrated camera (with known camera-to-robot extrinsics) and robot proprioceptive states. For each demonstration, we capture a trajectory of images $I_t^{(i)}$ from each available viewpoint. Using the robot’s end-effector position and the calibrated extrinsics, we project the 3D position of the end-effector into the 2D image plane, yielding $k$ keypoints $s_t^{(i)} = \{(u_j^{(i)}, v_j^{(i)})\}_{j=1}^k$. In practice, we take $k = 5$, giving us two points per finger on the gripper, and one in the center. We choose this positioning of points as it lends itself better to gripper positioning for grasping actions. The gripper’s open/close state is represented as a binary grasp variable $g_t^{(i)} \in \{0, 1\}$.
+          </p>
+          <p>
+            Human demonstrations are collected using RGB cameras without needing access to calibrated extrinsics, making it possible to leverage large-scale human video datasets. We use <a href="https://geopavlakos.github.io/hamer/" target="_blank">HaMeR</a>, an off-the-shelf hand pose detector, to extract a set of 21 keypoints $s_t^{(i)} = \{(u_j^{(i)}, v_j^{(i)})\}_{j=1}^{21}$. To roughly match the structure of the robot gripper, we select a subset of $k = 5$ keypoints: one on the wrist and two each on the thumb and index finger. 
           </p>
         </div>
         
         <!-- Extracting Grasps -->
         <h3 class="title is-5">Extracting Grasps from Human Videos</h3>
-          <video id="system-overview-video" class="method-video" autoplay muted loop>
+          <video id="system-overview-video" class="hand-grasp-video" autoplay muted loop>
             <source src="media/builds/hand_grasps.mp4" type="video/mp4">
           </video>
         <div class="content has-text-justified">
           <p>
-            ToDo
+            To infer per-timestep grasp actions from human videos, we use a heuristic based on the proximity of hand keypoints to the object(s) being manipulated. For each task, we first obtain a pixel-wise mask of the object using <a href="https://arxiv.org/abs/2303.05499" target="_blank">GroundingDINO</a>GroundingDINO and <a href="https://ai.meta.com/sam2/" target="_blank">SAM 2</a>. Then, if the number of pixels between the object mask and the keypoints on the thumb plus any one of the other fingertips falls below some threshold, we set $g_t^{(i)} = 1$. By loosely matching the positioning and ordering of keypoints between the human hand and robot gripper, we create an explicit correspondence between human and robot action representations in the image plane.
           </p>
         </div>
       </div>
@@ -347,13 +350,11 @@ code link -->
     </div>
 
     <!-- Description -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="columns has-text-justified">
+    <div class="columns is-centered">
+      <div class="column">
           <p>
-          ToDo
+            MT&#x2011;<i>&pi;</i> represent actions as 2D image trajectories which are not directly executable on a robot. To bridge this, we predict motion tracks from two third-person camera views and treat them as pixelwise correspondences. Using stereo triangulation with known extrinsics, we recover 3D keypoints and compute the rigid transformation between consecutive timesteps. This yields a 6DoF trajectory, $a_{t:t+T}$, for robot execution. In practice, we use a much shorter prediction horizon ($H=16 \ll T$) for more closed-loop reasoning.
           </p>
-        </div>
       </div>
     </div>
 

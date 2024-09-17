@@ -119,6 +119,20 @@ li {
   margin: 0 auto;
 }
 
+.data-collection-video {
+  width: 100%; /* Ensure the video is responsive */
+  height: 400px; /* Set the height to whatever you prefer */
+  object-fit: cover; /* This ensures the video fills the container and crops the top/bottom */
+  overflow: hidden; /* Ensures any overflow is hidden */
+}
+
+.hand-grasp-video {
+  width: 100%; /* Ensure the video is responsive */
+  height: 450px; /* Set the height to whatever you prefer */
+  object-fit: cover; /* This ensures the video fills the container and crops the top/bottom */
+  overflow: hidden; /* Ensures any overflow is hidden */
+}
+
 .data-video {
   width: 100%; /* Adjust the width as needed */
   height: auto; 
