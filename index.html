@@ -32,6 +32,28 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+    google.load("jquery", "1.3.2");
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$', '$']]
+        },
+        "HTML-CSS": {
+        availableFonts: ["TeX", "STIX-Web", "Asana-Math", "Latin-Modern"], // Specify the desired font here
+        preferredFont: "STIX-Web", // Set the preferred font
+        webFont: "STIX-Web" // Set the web font to use
+        },
+    });
+    </script>
+    <script
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    type="text/javascript"
+    ></script>
 </head>
 <body>
 
@@ -71,8 +93,8 @@
           </div>
 
           <br>
-          <img src="./media/logos/cornell.png" width="20%"></img>
-          <img src="./media/logos/stanford.png" width="15%"></img>
+          <img src="./media/figures/cornell.png" width="20%">
+          <img src="./media/figures/stanford.png" width="15%">
 
           <div class="column has-text-centered">
             
@@ -118,7 +140,6 @@
             <source src="media/builds/intro.mp4"
                     type="video/mp4">
           </video>
-          </br>
         </div>
         <br>
         <h2 class="subtitle has-text-centered">
@@ -253,7 +274,7 @@ code link -->
         <h2 class="title is-3">System Overview</h2>
 
         <div class="columns is-vcentered is-centered">
-          <video id="system-overview-video" class="method-video" autoplay muted loop>
+          <video id="system-overview-video" class="method-video" autoplay muted>
             <source src="media/builds/method.mp4" type="video/mp4">
           </video>
         </div>
@@ -270,8 +291,8 @@ code link -->
     </div>
   </div>
 </section>
-
 <hr>
+
 <!-- Data Collection -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -293,7 +314,7 @@ code link -->
         
         <!-- Extracting Grasps -->
         <h3 class="title is-5">Extracting Grasps from Human Videos</h3>
-          <video id="system-overview-video" class="data-video" autoplay muted loop>
+          <video id="system-overview-video" class="method-video" autoplay muted loop>
             <source src="media/builds/hand_grasps.mp4" type="video/mp4">
           </video>
         <div class="content has-text-justified">
@@ -338,36 +359,221 @@ code link -->
 
   </div>
 </section>
-
 <hr>
-<!-- Experiment Results -->
+
+
+<!-- Results -->
 <section class="section">
   <div class="container is-max-desktop">
 
     <!-- Video -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Evaluations</h2>
         <div class="columns is-vcentered is-centered">
-          <!-- <video id="system-overview-video" class="method-video" autoplay muted loop>
-            <source src="media/builds/method.mp4" type="video/mp4">
-          </video> -->
-          </br>
         </div>
       </div>
     </div>
 
-    <!-- Description -->
+    <!-- Description and List -->
+    <div class="columns is-centered">
+      <div class="column">
+        <p>
+          We evaluate MT&#x2011;<i>&pi;</i> on a suite of table-top tasks against two commonly used image-based IL algorithms: 
+          <a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">Diffusion Policy (DP)</a> and 
+          <a href="https://tonyzhaozh.github.io/aloha/" target="_blank">ACT</a>.
+        </p>
+        <ul style="text-align: left;">
+          <li>
+            MT&#x2011;<i>&pi;</i> shares the diffusion backbone with DP but differs by training on cross-embodiment data and using an image-based motion-track action space, unlike the 6DoF proprioceptive action space of DP and ACT.
+          </li>
+          <li>
+            Unlike the baselines, MT&#x2011;<i>&pi;</i> does not take wrist-camera observations as input, as these are typically absent in human videos.
+          </li>
+          <li>
+            These design choices are intended to attribute differences in policy performance to the training data distribution and action space employed by policies, rather than other factors.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Table -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <div class="columns has-text-justified">
-          <p>
-          ToDo
-          </p>
-        </div>
+        <table id="methods_comparison" style="width: 100%;  border-collapse: collapse; margin-top: -10px; margin-bottom: -10px;">
+          <thead>
+            <tr>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Method</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Human and <br> Robot Data</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Wrist <br> Camera Input</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">6DoF EE Delta <br> Action Space</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Diffusion <br> Backbone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border-right: 2px solid black;"><a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">DP</a></td>
+              <td>&#10007;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td style="border-right: 2px solid black;"><a href="https://tonyzhaozh.github.io/aloha/" target="_blank">ACT</a></td>
+              <td>&#10007;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10007;</td>
+            </tr>
+            <tr style="">
+              <td style="border-right: 2px solid black; background-color: #FFA5004D;"><strong>MT-<i>&pi;</i></strong></td>
+              <td style="background-color: #FFA5004D;">&#10003;</td>
+              <td style="background-color: #FFA5004D;">&#10007;</td>
+              <td style="background-color: #FFA5004D;">&#10007;</td>
+              <td style="background-color: #FFA5004D;">&#10003;</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
+    <hr>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5">Low Robot-Data Regime</h3>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+        <div class="content">
+            <p>
+                We consider 4 table-top manipulation tasks: folding a towel, placing a fork on a plate, serving an egg, and putting away socks. All algorithms are trained from 25 teleoperated robot demonstrations. MT&#x2011;<i>&pi;</i> is provided an additional 10 minutes of human demonstrations.
+            </p>
+        </div>
+    </div>
+
+    </br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <table id="methods_comparison" style="width: 100%;  border-collapse: collapse; margin-top: -10px; margin-bottom: -10px;">
+          <thead>
+            <tr>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Method</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Fold<br>Cloth</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Fork on<br>Plate</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Serve<br>Egg</th>
+              <th class="centered-header" style="border-bottom: 2px solid black;">Put Away<br>Socks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border-right: 2px solid black;"><a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">DP</a></td>
+              <td>7/20</td>
+              <td>3/20</td>
+              <td>7/20</td>
+              <td>10/20</td>
+            </tr>
+            <tr>
+              <td style="border-right: 2px solid black;"><a href="https://tonyzhaozh.github.io/aloha/" target="_blank">ACT</a></td>
+              <td>14/20</td>
+              <td>5/20</td>
+              <td>3/20</td>
+              <td>11/20</td>
+            </tr>
+            <tr style="">
+              <td style="border-right: 2px solid black; background-color: #FFA5004D;"><strong>MT-<i>&pi;</i> (H+R)</strong></td>
+              <td style="background-color: #FFA5004D;"><strong>18/20</strong></td>
+              <td style="background-color: #FFA5004D;"><strong>18/20</strong></td>
+              <td style="background-color: #FFA5004D;"><strong>17/20</strong></td>
+              <td style="background-color: #FFA5004D;"><strong>16/20</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5">Generalization to Novel Motions</h3>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+        <div class="content">
+            <p>
+                A benefit of motion tracks as a representation is that they allow for positive transfer of motions captured in human demonstrations to an embodied agent. This is enabled by <i>explicitly</i> representing human motions within our action space, instead of only implicitly (i.e. via latent embeddings).
+            </p>
+            <p>
+                To this end, we evaluate two variants of MT-$\pi$ (trained on human + robot data vs. robot data only) against DP and ACT for the task of closing a drawer. Human videos include closing the drawer in both directions, while robot demonstrations only show closing to the right. While all policies perform well closing to the right (in-distribution for $D_\mathrm{robot}$), only MT-$\pi$ (H+R) generalizes to closing the drawer to the left.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <table id="close_direction_comparison" style="width: 100%; border-collapse: collapse; margin-top: -10px; margin-bottom: -10px; table-layout: fixed;">
+          <thead>
+            <tr>
+              <th class="centered-header" style="border-bottom: 2px solid black; width: 30%;">Close Direction</th>
+              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%;">DP</th>
+              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%;">ACT</th>
+              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%;">MT-<i>&pi;</i> (Robot Only)</th>
+              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%; background-color: #FFA5004D;">MT-<i>&pi;</i> (H+R)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border-right: 2px solid black;">Left (In $D_{\text{robot}} \cup D_{\text{human}}$)</td>
+              <td><strong>20/20</strong></td>
+              <td>17/20</td>
+              <td><strong>20/20</strong></td>
+              <td style="background-color: #FFA5004D;"><strong>20/20</strong></td>
+            </tr>
+            <tr>
+              <td style="border-right: 2px solid black;">Right (<em>Only</em> in $D_{\text{human}}$)</td>
+              <td>0/10</td>
+              <td>0/10</td>
+              <td>0/10</td>
+              <td style="background-color: #FFA5004D;"><strong>18/20</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5">How Much Data is Enough?</h3>
+      </div>
+    </div>
+
+    <!-- Description and List -->
+    <div class="row is-centered">
+        <p>
+            We evaluate MT&#x2011;<i>&pi;</i> on a medium-complexity task to study the policy's performance under varying amounts of both human and robot data.
+        </p>
+        <br>
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <img src="media/figures/heatmap.png" width="100%">
+            </div>
+        </div>
+
+        <ul style="text-align: left; margin-top: 15px; margin-left: 40px;">
+            <li>
+                MT&#x2011;<i>&pi;</i> without any human demonstrations matches the success rates of DP and ACT given the same amount of robot demonstrations, suggesting that predicting actions in image-space is a scalable action representation even with just robot data.
+            </li>
+            <li>
+                MT&#x2011;<i>&pi;</i> matches the performance of baselines despite using 40% less minutes of robot demonstrations by leveraging &#x7e;10 minutes of human demonstrations.
+            </li>
+            <li>
+                Even for a fixed, small amount of teleoperated robot demonstrations, MT&#x2011;<i>&pi;</i> can obtain noticeably higher policy performance simply by scaling up human video alone on the order of just minutes.
+            </li>
+        </ul>
+    </div>
   </div>
 </section>
 
