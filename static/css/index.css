@@ -105,6 +105,21 @@ pre code {
   margin: 0 auto;
 }
 
+.data-video {
+  width: 100%; /* Adjust the width as needed */
+  height: auto; 
+  display: block;
+  margin: 0 auto;
+}
+
+.triangulation-video {
+  width: 70%; /* Adjust the width as needed */
+  height: auto; 
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
 .teaser .hero-body {
   padding-top: 0;
 }
