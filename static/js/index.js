@@ -56,10 +56,9 @@ function init() {
   initCarousels();
 
   // Adjust video playback speeds
-  const videos = ['carousel-rollout', 'teaser-video', 'system-overview-video'];
-  videos.forEach(id => {
-    const video = document.getElementById(id);
-    if (video) video.playbackRate = 0.7;
+  const videos = document.querySelectorAll('#results-carousel video');
+  videos.forEach(video => {
+    video.playbackRate = 0.5;
   });
 
   bulmaSlider.attach();
