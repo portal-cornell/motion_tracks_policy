@@ -1,257 +1,349 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQTBKP87MK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VQTBKP87MK"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-VQTBKP87MK');
-  </script>
+      gtag("config", "G-VQTBKP87MK");
+    </script>
 
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Motion Tracks: A Unified Representation for Human-Robot Transfer in Few-Shot Imitation Learning">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Motion Tracks: A Unified Representation for Human-Robot Transfer in Few-Shot Imitation Learning</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Motion Tracks: A Unified Representation for Human-Robot Transfer in Few-Shot Imitation Learning"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Motion Tracks: A Unified Representation for Human-Robot Transfer in
+      Few-Shot Imitation Learning
+    </title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-  <script type="text/javascript">
-    google.load("jquery", "1.3.2");
-  </script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-        inlineMath: [['$', '$']]
-        },
-        "HTML-CSS": {
-        availableFonts: ["TeX", "STIX-Web", "Asana-Math", "Latin-Modern"], // Specify the desired font here
-        preferredFont: "STIX-Web", // Set the preferred font
-        webFont: "STIX-Web" // Set the web font to use
-        },
-    });
-  </script>
-  <script
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    type="text/javascript"
-  ></script>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load("jquery", "1.3.2");
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          inlineMath: [['$', '$']]
+          },
+          "HTML-CSS": {
+          availableFonts: ["TeX", "STIX-Web", "Asana-Math", "Latin-Modern"], // Specify the desired font here
+          preferredFont: "STIX-Web", // Set the preferred font
+          webFont: "STIX-Web" // Set the web font to use
+          },
+      });
+    </script>
+    <script
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Motion Tracks: A Unified Representation for<br />Human-Robot
+                Transfer in Few-Shot Imitation Learning
+              </h1>
 
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://jren03.github.io/">Juntao Ren<sup>1</sup></a
+                  >,
+                </span>
+                <span class="author-block">
+                  <a href="https://priyasundaresan.github.io/"
+                    >Priya Sundaresan<sup>2</sup></a
+                  >,
+                </span>
+                <span class="author-block">
+                  <a href="https://dorsa.fyi/">Dorsa Sadigh<sup>2</sup></a
+                  >,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.sanjibanchoudhury.com/"
+                    >Sanjiban Choudhury<sup>1</sup></a
+                  >,
+                </span>
+                <span class="author-block">
+                  <a href="https://web.stanford.edu/~bohg/"
+                    >Jeanette Bohg<sup>2</sup></a
+                  >
+                </span>
+              </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Motion Tracks: A Unified Representation for<br>Human-Robot Transfer in Few-Shot Imitation Learning</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <sup>1</sup>Cornell University,
+                </span>
+                <span class="author-block">
+                  <sup>2</sup>Stanford University
+                </span>
+              </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://jren03.github.io/">Juntao Ren<sup>1</sup></a>,
-            </span>
-            <span class="author-block">
-              <a href="https://priyasundaresan.github.io/">Priya Sundaresan<sup>2</sup></a>,
-            </span>
-            <span class="author-block">
-                <a href="https://dorsa.fyi/">Dorsa Sadigh<sup>2</sup></a>,
-            </span>
-            <span class="author-block">
-                <a href="https://www.sanjibanchoudhury.com/">Sanjiban Choudhury<sup>1</sup></a>,
-            </span>
-            <span class="author-block">
-                <a href="https://web.stanford.edu/~bohg/">Jeanette Bohg<sup>2</sup></a>
-            </span>
-          </div>
+              <br />
+              <img src="./media/figures/cornell.png" width="20%" />
+              <img src="./media/figures/stanford.png" width="15%" />
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-                <sup>1</sup>Cornell University,
-            </span>
-            <span class="author-block">
-                <sup>2</sup>Stanford University
-            </span>
-          </div>
-
-          <br>
-          <img src="./media/figures/cornell.png" width="20%">
-          <img src="./media/figures/stanford.png" width="15%">
-
-          <div class="column has-text-centered">
-            
-            <div class="publication-links">
-
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href=""
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper (Coming Soon)</span>
+                    </a>
                   </span>
-                  <span>Paper (Coming Soon)</span>
-                </a>
-              </span>
 
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fa-brands fa-github"></i>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a
+                      href=""
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fa-brands fa-github"></i>
+                      </span>
+                      <span>Code (Coming Soon)</span>
+                    </a>
                   </span>
-                  <span>Code (Coming Soon)</span>
-                </a>
-              </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Title Card + Caption -->
+    <section class="hero teaser">
+      <div class="container is-fullhd">
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns is-vcentered  is-centered">
+              <video
+                id="teaser"
+                class="intro-video"
+                autoplay
+                muted
+                height="100%"
+              >
+                <source src="media/builds/intro.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <br />
+            <h2 class="subtitle has-text-centered">
+              <span class="dmtpi">Motion-Track Policy</span> (MT-<i>&pi;</i>)
+              presents a <b>unified action space</b> by representing actions as
+              <b>2D trajectories</b> on an image, <br />
+              enabling it to directly imitate from
+              <b>cross-embodiment datasets</b> with minimal amounts of robot
+              demonstrations.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <!-- Fold -->
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/fold_with_text.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </div>
 
+            <!-- Egg -->
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/serve_egg_with_text.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+
+            <!-- Socks -->
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/socks_with_text.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+
+            <!-- Drawer -->
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/drawer_with_text.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+
+            <!-- Fork -->
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/fork_with_text.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+    <h2 class="subtitle has-text-centered">
+      <br />
+      We evaluate MT-<i>&pi;</i> across a suite of real-world tasks testing its
+      robustness in policy execution <br />
+      and the ability to generalize to scenes and motions only present in human
+      demonstrations.
+    </h2>
 
-<!-- Title Card + Caption -->
-<section class="hero teaser"></section>
-  <div class="container is-fullhd">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-vcentered  is-centered">
-          <video id="teaser" class="intro-video" autoplay muted loop height="100%" >
-            <source src="media/builds/intro.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <br>
-        <h2 class="subtitle has-text-centered">
-        <span class="dmtpi">Motion-Track Policy</span> (MT-<i>&pi;</i>)
-        presents a <b>unified action space</b> by representing actions as <b>2D trajectories</b> on an image, <br> enabling it to directly imitate from <b>cross-embodiment datasets</b> with minimal amounts of robot demonstrations.
-        </h2>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Carousel -->
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-
-        <!-- Fold -->
-        <div class="item">
-          <video poster="" id="carousel-rollout" autoplay muted loop controls height="100%">
-            <source src="media/rollouts/fold_with_text.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <!-- Egg -->
-        <div class="item">
-          <video poster="" id="carousel-rollout" autoplay muted loop controls height="100%">
-            <source src="media/rollouts/serve_egg_with_text.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <!-- Socks -->
-        <div class="item">
-          <video poster="" id="carousel-rollout" autoplay muted loop controls height="100%">
-            <source src="media/rollouts/socks_with_text.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <!-- Drawer -->
-        <div class="item">
-          <video poster="" id="carousel-rollout" autoplay muted loop controls height="100%">
-            <source src="media/rollouts/drawer_with_text.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <!-- Fork -->
-        <div class="item">
-          <video poster="" id="carousel-rollout" autoplay muted loop controls height="100%">
-            <source src="media/rollouts/fork_with_text.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-<h2 class="subtitle has-text-centered">
-</br>
-  We evaluate MT-<i>&pi;</i> across a suite of real-world tasks testing its robustness in policy execution <br>
-  and the ability to generalize to scenes and motions only present in human demonstrations. 
-</h2>
-
-<!-- let's def put videos of each task, and also videos of baselines
+    <!-- let's def put videos of each task, and also videos of baselines
 a little overview of our method with videos/animations:
 data collection videos: human/robot vids & maybe some of the vis_outs of human hand videos to show grasp detection/hamer
 action inference/execution: i can make some blender animations of triangulation & stuff (will get to this late in the week though)
 failure mode videos
 code link -->
 
-<hr>
+    <hr />
 
-<!-- Abstract. -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-              Teaching robots to autonomously complete everyday tasks remains a persistent challenge. 
-              Imitation learning (IL) is a powerful approach that imbues robots with skills via demonstrations, 
-              but is limited by the slow, labor-intensive process of collecting teleoperated robot data. 
-              Human videos offer a scalable alternative, but it remains difficult to directly train IL policies 
-              from them due to the lack of robot action labels. To address this, we propose to represent actions 
-              as short-horizon 2D trajectories on an image. These actions, or <em>motion tracks</em>, capture the 
-              predicted direction of motion for either human hands or robot end-effectors. 
-            </p>
-            <p>
-              We instantiate an IL 
-              policy called Motion Track Policy (MT&#x2011;<i>&pi;</i>) which receives image observations and outputs 
-              motion tracks as actions. By leveraging this unified, cross-embodiment action space, 
-              MT&#x2011;<i>&pi;</i> completes tasks with high success given 
-              just minutes of human video and limited additional robot demonstrations. At test time, we predict 
-              motion tracks from two camera views, recovering full 6DoF trajectories via multi-view synthesis. 
-              MT&#x2011;<i>&pi;</i> achieves an average success rate of 86.5% 
-              across 4 real-world tasks, outperforming state-of-the-art IL baselines which do not leverage human 
-              data or our action space by 40%, and generalizes to novel scenarios seen only in human videos. 
-          </p>
+    <!-- Abstract. -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Teaching robots to autonomously complete everyday tasks remains
+                a persistent challenge. Imitation learning (IL) is a powerful
+                approach that imbues robots with skills via demonstrations, but
+                is limited by the slow, labor-intensive process of collecting
+                teleoperated robot data. Human videos offer a scalable
+                alternative, but it remains difficult to directly train IL
+                policies from them due to the lack of robot action labels. To
+                address this, we propose to represent actions as short-horizon
+                2D trajectories on an image. These actions, or
+                <em>motion tracks</em>, capture the predicted direction of
+                motion for either human hands or robot end-effectors.
+              </p>
+              <p>
+                We instantiate an IL policy called Motion Track Policy
+                (MT&#x2011;<i>&pi;</i>) which receives image observations and
+                outputs motion tracks as actions. By leveraging this unified,
+                cross-embodiment action space, MT&#x2011;<i>&pi;</i> completes
+                tasks with high success given just minutes of human video and
+                limited additional robot demonstrations. At test time, we
+                predict motion tracks from two camera views, recovering full
+                6DoF trajectories via multi-view synthesis. MT&#x2011;<i
+                  >&pi;</i
+                >
+                achieves an average success rate of 86.5% across 4 real-world
+                tasks, outperforming state-of-the-art IL baselines which do not
+                leverage human data or our action space by 40%, and generalizes
+                to novel scenarios seen only in human videos.
+              </p>
+            </div>
+          </div>
         </div>
+        <!--/ Abstract. -->
       </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
 
-  <!-- Paper video. -->
-  <!-- <div class="columns is-centered has-text-centered">
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
     <div class="column is-two-thirds">
       <h2 class="title is-3">Video</h2>
       <div class="publication-video">
@@ -260,358 +352,571 @@ code link -->
       </div>
     </div>
   </div> -->
+    </section>
 
-</section>
-
-<hr>
-<!-- System Overview -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Video -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3">System Overview</h2>
-
-        <div class="columns is-vcentered is-centered">
-          <video id="system-overview-video" class="method-video" autoplay muted>
-            <source src="media/builds/method.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        </br>
-
-        <div class="content has-text-justified">
-          <p>
-            We co-train MT&#x2011;<i>&pi;</i> on human and robot demonstrations to predict the future pixel locations of keypoints on the end-effector (shown in red). For robot demonstrations, keypoints are extracted using calibrated camera-to-robot extrinsics, while human hand keypoints are obtained via <a href="https://geopavlakos.github.io/hamer/" target="_blank">HaMeR</a>. To address embodiment differences, a Keypoint Retargeting Network maps robot keypoints to more closely resemble the human hand structure. The Motion Prediction Network, based on Diffusion Policy, takes image embeddings and current keypoints as input and predicts future keypoint tracks and grasp states. By operating entirely in image space, MT&#x2011;<i>&pi;</i> directly learns actions from both robot and human demonstrations with a cross-embodiment action representation.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-<hr>
-
-<!-- Data Collection -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3">Data Collection</h2>
-
-        <!-- Extracting Motion Tracks -->
-        <h3 class="title is-5">Extracting Motion Tracks</h3>
-          <video id="system-overview-video" class="data-collection-video" autoplay muted loop>
-            <source src="media/builds/tracks.mp4" type="video/mp4">
-          </video>
-        <div class="content has-text-justified">
-          <p>
-            To collect robot demonstrations, we assume access to a workspace with $\geq1$ calibrated camera (with known camera-to-robot extrinsics) and robot proprioceptive states. For each demonstration, we capture a trajectory of images $I_t^{(i)}$ from each available viewpoint. Using the robot’s end-effector position and the calibrated extrinsics, we project the 3D position of the end-effector into the 2D image plane, yielding $k$ keypoints $s_t^{(i)} = \{(u_j^{(i)}, v_j^{(i)})\}_{j=1}^k$. In practice, we take $k = 5$, giving us two points per finger on the gripper, and one in the center. We choose this positioning of points as it lends itself better to gripper positioning for grasping actions. The gripper’s open/close state is represented as a binary grasp variable $g_t^{(i)} \in \{0, 1\}$.
-          </p>
-          <p>
-            Human demonstrations are collected using RGB cameras without needing access to calibrated extrinsics, making it possible to leverage large-scale human video datasets. We use <a href="https://geopavlakos.github.io/hamer/" target="_blank">HaMeR</a>, an off-the-shelf hand pose detector, to extract a set of 21 keypoints $s_t^{(i)} = \{(u_j^{(i)}, v_j^{(i)})\}_{j=1}^{21}$. To roughly match the structure of the robot gripper, we select a subset of $k = 5$ keypoints: one on the wrist and two each on the thumb and index finger. 
-          </p>
-        </div>
-        
-        <!-- Extracting Grasps -->
-        <h3 class="title is-5">Extracting Grasps from Human Videos</h3>
-          <video id="system-overview-video" class="hand-grasp-video" autoplay muted loop>
-            <source src="media/builds/hand_grasps.mp4" type="video/mp4">
-          </video>
-        <div class="content has-text-justified">
-          <p>
-            To infer per-timestep grasp actions from human videos, we use a heuristic based on the proximity of hand keypoints to the object(s) being manipulated. For each task, we first obtain a pixel-wise mask of the object using <a href="https://arxiv.org/abs/2303.05499" target="_blank">GroundingDINO</a>GroundingDINO and <a href="https://ai.meta.com/sam2/" target="_blank">SAM 2</a>. Then, if the number of pixels between the object mask and the keypoints on the thumb plus any one of the other fingertips falls below some threshold, we set $g_t^{(i)} = 1$. By loosely matching the positioning and ordering of keypoints between the human hand and robot gripper, we create an explicit correspondence between human and robot action representations in the image plane.
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr>
-<!-- Inference -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Video -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Inference</h2>
-        <div class="columns is-vcentered is-centered">
-          <video id="system-overview-video" class="triangulation-video" autoplay muted loop>
-            <source src="media/builds/triangulation.mp4" type="video/mp4">
-          </video>
-          </br>
-        </div>
-      </div>
-    </div>
-
-    <!-- Description -->
-    <div class="columns is-centered">
-      <div class="column">
-          <p>
-            MT&#x2011;<i>&pi;</i> represent actions as 2D image trajectories which are not directly executable on a robot. To bridge this, we predict motion tracks from two third-person camera views and treat them as pixelwise correspondences. Using stereo triangulation with known extrinsics, we recover 3D keypoints and compute the rigid transformation between consecutive timesteps. This yields a 6DoF trajectory, $a_{t:t+T}$, for robot execution. In practice, we use a much shorter prediction horizon ($H=16 \ll T$) for more closed-loop reasoning.
-          </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-<hr>
-
-
-<!-- Results -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Video -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Evaluations</h2>
-        <div class="columns is-vcentered is-centered">
-        </div>
-      </div>
-    </div>
-
-    <!-- Description and List -->
-    <div class="columns is-centered">
-      <div class="column">
-        <p>
-          We evaluate MT&#x2011;<i>&pi;</i> on a suite of table-top tasks against two commonly used image-based IL algorithms: 
-          <a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">Diffusion Policy (DP)</a> and 
-          <a href="https://tonyzhaozh.github.io/aloha/" target="_blank">ACT</a>.
-        </p>
-        <ul style="text-align: left;">
-          <li>
-            MT&#x2011;<i>&pi;</i> shares the diffusion backbone with DP but differs by training on cross-embodiment data and using an image-based motion-track action space, unlike the 6DoF proprioceptive action space of DP and ACT.
-          </li>
-          <li>
-            Unlike the baselines, MT&#x2011;<i>&pi;</i> does not take wrist-camera observations as input, as these are typically absent in human videos.
-          </li>
-          <li>
-            These design choices are intended to attribute differences in policy performance to the training data distribution and action space employed by policies, rather than other factors.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Table -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <table id="methods_comparison" style="width: 100%;  border-collapse: collapse; margin-top: -10px; margin-bottom: -10px;">
-          <thead>
-            <tr>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Method</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Human and <br> Robot Data</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Wrist <br> Camera Input</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">6DoF EE Delta <br> Action Space</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Diffusion <br> Backbone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="border-right: 2px solid black;"><a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">DP</a></td>
-              <td>&#10007;</td>
-              <td>&#10003;</td>
-              <td>&#10003;</td>
-              <td>&#10003;</td>
-            </tr>
-            <tr>
-              <td style="border-right: 2px solid black;"><a href="https://tonyzhaozh.github.io/aloha/" target="_blank">ACT</a></td>
-              <td>&#10007;</td>
-              <td>&#10003;</td>
-              <td>&#10003;</td>
-              <td>&#10007;</td>
-            </tr>
-            <tr style="">
-              <td style="border-right: 2px solid black; background-color: #FFA5004D;"><strong>MT-<i>&pi;</i></strong></td>
-              <td style="background-color: #FFA5004D;">&#10003;</td>
-              <td style="background-color: #FFA5004D;">&#10007;</td>
-              <td style="background-color: #FFA5004D;">&#10007;</td>
-              <td style="background-color: #FFA5004D;">&#10003;</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h3 class="title is-5">Low Robot-Data Regime</h3>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-        <div class="content">
-            <p>
-                We consider 4 table-top manipulation tasks: folding a towel, placing a fork on a plate, serving an egg, and putting away socks. All algorithms are trained from 25 teleoperated robot demonstrations. MT&#x2011;<i>&pi;</i> is provided an additional 10 minutes of human demonstrations.
-            </p>
-        </div>
-    </div>
-
-    </br>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <table id="methods_comparison" style="width: 100%;  border-collapse: collapse; margin-top: -10px; margin-bottom: -10px;">
-          <thead>
-            <tr>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Method</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Fold<br>Cloth</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Fork on<br>Plate</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Serve<br>Egg</th>
-              <th class="centered-header" style="border-bottom: 2px solid black;">Put Away<br>Socks</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="border-right: 2px solid black;"><a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">DP</a></td>
-              <td>7/20</td>
-              <td>3/20</td>
-              <td>7/20</td>
-              <td>10/20</td>
-            </tr>
-            <tr>
-              <td style="border-right: 2px solid black;"><a href="https://tonyzhaozh.github.io/aloha/" target="_blank">ACT</a></td>
-              <td>14/20</td>
-              <td>5/20</td>
-              <td>3/20</td>
-              <td>11/20</td>
-            </tr>
-            <tr style="">
-              <td style="border-right: 2px solid black; background-color: #FFA5004D;"><strong>MT-<i>&pi;</i> (H+R)</strong></td>
-              <td style="background-color: #FFA5004D;"><strong>18/20</strong></td>
-              <td style="background-color: #FFA5004D;"><strong>18/20</strong></td>
-              <td style="background-color: #FFA5004D;"><strong>17/20</strong></td>
-              <td style="background-color: #FFA5004D;"><strong>16/20</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <hr>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h3 class="title is-5">Generalization to Novel Motions</h3>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-        <div class="content">
-            <p>
-                A benefit of motion tracks as a representation is that they allow for positive transfer of motions captured in human demonstrations to an embodied agent. This is enabled by <i>explicitly</i> representing human motions within our action space, instead of only implicitly (i.e. via latent embeddings).
-            </p>
-            <p>
-                To this end, we evaluate two variants of MT-$\pi$ (trained on human + robot data vs. robot data only) against DP and ACT for the task of closing a drawer. Human videos include closing the drawer in both directions, while robot demonstrations only show closing to the right. While all policies perform well closing to the right (in-distribution for $D_\mathrm{robot}$), only MT-$\pi$ (H+R) generalizes to closing the drawer to the left.
-            </p>
-        </div>
-    </div>
-    <br>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <table id="close_direction_comparison" style="width: 100%; border-collapse: collapse; margin-top: -10px; margin-bottom: -10px; table-layout: fixed;">
-          <thead>
-            <tr>
-              <th class="centered-header" style="border-bottom: 2px solid black; width: 30%;">Close Direction</th>
-              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%;">DP</th>
-              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%;">ACT</th>
-              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%;">MT-<i>&pi;</i> (Robot Only)</th>
-              <th class="centered-header" style="border-bottom: 2px solid black; width: 17.5%; background-color: #FFA5004D;">MT-<i>&pi;</i> (H+R)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="border-right: 2px solid black;">Left (In $D_{\text{robot}} \cup D_{\text{human}}$)</td>
-              <td><strong>20/20</strong></td>
-              <td>17/20</td>
-              <td><strong>20/20</strong></td>
-              <td style="background-color: #FFA5004D;"><strong>20/20</strong></td>
-            </tr>
-            <tr>
-              <td style="border-right: 2px solid black;">Right (<em>Only</em> in $D_{\text{human}}$)</td>
-              <td>0/10</td>
-              <td>0/10</td>
-              <td>0/10</td>
-              <td style="background-color: #FFA5004D;"><strong>18/20</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <hr>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h3 class="title is-5">How Much Data is Enough?</h3>
-      </div>
-    </div>
-
-    <!-- Description and List -->
-    <div class="row is-centered">
-        <p>
-            We evaluate MT&#x2011;<i>&pi;</i> on a medium-complexity task to study the policy's performance under varying amounts of both human and robot data.
-        </p>
-        <br>
+    <hr />
+    <!-- System Overview -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Video -->
         <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-                <img src="media/figures/heatmap.png" width="100%">
+          <div class="column">
+            <h2 class="title is-3">System Overview</h2>
+
+            <div class="columns is-vcentered is-centered">
+              <video
+                id="system-overview-video"
+                class="method-video"
+                autoplay
+                muted
+              >
+                <source src="media/builds/method.mp4" type="video/mp4" />
+              </video>
             </div>
-        </div>
 
-        <ul style="text-align: left; margin-top: 15px; margin-left: 40px;">
-            <li>
-                MT&#x2011;<i>&pi;</i> without any human demonstrations matches the success rates of DP and ACT given the same amount of robot demonstrations, suggesting that predicting actions in image-space is a scalable action representation even with just robot data.
-            </li>
-            <li>
-                MT&#x2011;<i>&pi;</i> matches the performance of baselines despite using 40% less minutes of robot demonstrations by leveraging &#x7e;10 minutes of human demonstrations.
-            </li>
-            <li>
-                Even for a fixed, small amount of teleoperated robot demonstrations, MT&#x2011;<i>&pi;</i> can obtain noticeably higher policy performance simply by scaling up human video alone on the order of just minutes.
-            </li>
-        </ul>
-    </div>
-  </div>
-</section>
+            <br />
 
-
-<hr>
-<!-- Failure Modes-->
-<section class="section">
-    <div class="container is-max-desktop">
-  
-      <!-- Video -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Failure Modes</h2>
-          <div class="columns is-vcentered is-centered">
+            <div class="content has-text-justified">
+              <p>
+                We co-train MT&#x2011;<i>&pi;</i> on human and robot
+                demonstrations to predict the future pixel locations of
+                keypoints on the end-effector (shown in red). For robot
+                demonstrations, keypoints are extracted using calibrated
+                camera-to-robot extrinsics, while human hand keypoints are
+                obtained via
+                <a href="https://geopavlakos.github.io/hamer/" target="_blank"
+                  >HaMeR</a
+                >. To address embodiment differences, a Keypoint Retargeting
+                Network maps robot keypoints to more closely resemble the human
+                hand structure. The Motion Prediction Network, based on
+                Diffusion Policy, takes image embeddings and current keypoints
+                as input and predicts future keypoint tracks and grasp states.
+                By operating entirely in image space, MT&#x2011;<i>&pi;</i>
+                directly learns actions from both robot and human demonstrations
+                with a cross-embodiment action representation.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+    <hr />
 
-    </div>
-</section>
+    <!-- Data Collection -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">Data Collection</h2>
 
+            <!-- Extracting Motion Tracks -->
+            <h3 class="title is-5">Extracting Motion Tracks</h3>
+            <video
+              id="system-overview-video"
+              class="data-collection-video"
+              autoplay
+              muted
+              loop
+            >
+              <source src="media/builds/tracks.mp4" type="video/mp4" />
+            </video>
+            <div class="content has-text-justified">
+              <p>
+                To collect robot demonstrations, we assume access to a workspace
+                with $\geq1$ calibrated camera (with known camera-to-robot
+                extrinsics) and robot proprioceptive states. For each
+                demonstration, we capture a trajectory of images $I_t^{(i)}$
+                from each available viewpoint. Using the robot’s end-effector
+                position and the calibrated extrinsics, we project the 3D
+                position of the end-effector into the 2D image plane, yielding
+                $k$ keypoints $s_t^{(i)} = \{(u_j^{(i)}, v_j^{(i)})\}_{j=1}^k$.
+                In practice, we take $k = 5$, giving us two points per finger on
+                the gripper, and one in the center. We choose this positioning
+                of points as it lends itself better to gripper positioning for
+                grasping actions. The gripper’s open/close state is represented
+                as a binary grasp variable $g_t^{(i)} \in \{0, 1\}$.
+              </p>
+              <p>
+                Human demonstrations are collected using RGB cameras without
+                needing access to calibrated extrinsics, making it possible to
+                leverage large-scale human video datasets. We use
+                <a href="https://geopavlakos.github.io/hamer/" target="_blank"
+                  >HaMeR</a
+                >, an off-the-shelf hand pose detector, to extract a set of 21
+                keypoints $s_t^{(i)} = \{(u_j^{(i)}, v_j^{(i)})\}_{j=1}^{21}$.
+                To roughly match the structure of the robot gripper, we select a
+                subset of $k = 5$ keypoints: one on the wrist and two each on
+                the thumb and index finger.
+              </p>
+            </div>
 
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content has-text-centered">
-          <p>
-            Website template borrowed from <a
-              href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a> and <a href="https://voxposer.github.io/">VoxPoser</a>.
-          </p>
+            <!-- Extracting Grasps -->
+            <h3 class="title is-5">Extracting Grasps from Human Videos</h3>
+            <video
+              id="system-overview-video"
+              class="hand-grasp-video"
+              autoplay
+              muted
+              loop
+            >
+              <source src="media/builds/hand_grasps.mp4" type="video/mp4" />
+            </video>
+            <div class="content has-text-justified">
+              <p>
+                To infer per-timestep grasp actions from human videos, we use a
+                heuristic based on the proximity of hand keypoints to the
+                object(s) being manipulated. For each task, we first obtain a
+                pixel-wise mask of the object using
+                <a href="https://arxiv.org/abs/2303.05499" target="_blank"
+                  >GroundingDINO</a
+                >GroundingDINO and
+                <a href="https://ai.meta.com/sam2/" target="_blank">SAM 2</a>.
+                Then, if the number of pixels between the object mask and the
+                keypoints on the thumb plus any one of the other fingertips
+                falls below some threshold, we set $g_t^{(i)} = 1$. By loosely
+                matching the positioning and ordering of keypoints between the
+                human hand and robot gripper, we create an explicit
+                correspondence between human and robot action representations in
+                the image plane.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </section>
 
-</body>
+    <hr />
+    <!-- Inference -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Video -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Inference</h2>
+            <div class="columns is-vcentered is-centered">
+              <video
+                id="system-overview-video"
+                class="triangulation-video"
+                autoplay
+                muted
+                loop
+              >
+                <source src="media/builds/triangulation.mp4" type="video/mp4" />
+              </video>
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="columns is-centered">
+          <div class="column">
+            <p>
+              MT&#x2011;<i>&pi;</i> represent actions as 2D image trajectories
+              which are not directly executable on a robot. To bridge this, we
+              predict motion tracks from two third-person camera views and treat
+              them as pixelwise correspondences. Using stereo triangulation with
+              known extrinsics, we recover 3D keypoints and compute the rigid
+              transformation between consecutive timesteps. This yields a 6DoF
+              trajectory, $a_{t:t+T}$, for robot execution. In practice, we use
+              a much shorter prediction horizon ($H=16 \ll T$) for more
+              closed-loop reasoning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr />
+
+    <!-- Results -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Video -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Evaluations</h2>
+            <div class="columns is-vcentered is-centered"></div>
+          </div>
+        </div>
+
+        <!-- Description and List -->
+        <div class="columns is-centered">
+          <div class="column">
+            <p>
+              We evaluate MT&#x2011;<i>&pi;</i> on a suite of table-top tasks
+              against two commonly used image-based IL algorithms:
+              <a
+                href="https://diffusion-policy.cs.columbia.edu/"
+                target="_blank"
+                >Diffusion Policy (DP)</a
+              >
+              and
+              <a href="https://tonyzhaozh.github.io/aloha/" target="_blank"
+                >ACT</a
+              >.
+            </p>
+            <ul style="text-align: left;">
+              <li>
+                MT&#x2011;<i>&pi;</i> shares the diffusion backbone with DP but
+                differs by training on cross-embodiment data and using an
+                image-based motion-track action space, unlike the 6DoF
+                proprioceptive action space of DP and ACT.
+              </li>
+              <li>
+                Unlike the baselines, MT&#x2011;<i>&pi;</i> does not take
+                wrist-camera observations as input, as these are typically
+                absent in human videos.
+              </li>
+              <li>
+                These design choices are intended to attribute differences in
+                policy performance to the training data distribution and action
+                space employed by policies, rather than other factors.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <table
+              id="methods_comparison"
+              style="width: 100%;  border-collapse: collapse; margin-top: -10px; margin-bottom: -10px;"
+            >
+              <thead>
+                <tr>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Method
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Human and <br />
+                    Robot Data
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Wrist <br />
+                    Camera Input
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    6DoF EE Delta <br />
+                    Action Space
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Diffusion <br />
+                    Backbone
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    <a
+                      href="https://diffusion-policy.cs.columbia.edu/"
+                      target="_blank"
+                      >DP</a
+                    >
+                  </td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10003;</td>
+                  <td>&#10003;</td>
+                </tr>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    <a
+                      href="https://tonyzhaozh.github.io/aloha/"
+                      target="_blank"
+                      >ACT</a
+                    >
+                  </td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                </tr>
+                <tr style="">
+                  <td
+                    style="border-right: 2px solid black; background-color: #FFA5004D;"
+                  >
+                    <strong>MT-<i>&pi;</i></strong>
+                  </td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                  <td style="background-color: #FFA5004D;">&#10007;</td>
+                  <td style="background-color: #FFA5004D;">&#10007;</td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-5">Low Robot-Data Regime</h3>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="content">
+            <p>
+              We consider 4 table-top manipulation tasks: folding a towel,
+              placing a fork on a plate, serving an egg, and putting away socks.
+              All algorithms are trained from 25 teleoperated robot
+              demonstrations. MT&#x2011;<i>&pi;</i> is provided an additional 10
+              minutes of human demonstrations.
+            </p>
+          </div>
+        </div>
+
+        <br />
+        <div class="chart-container" style="width: 80%; margin: auto;">
+          <canvas id="taskBarChart"></canvas>
+          <div id="video-container" style="margin-top: 20px;"></div>
+        </div>
+
+        <hr />
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-5">Generalization to Novel Motions</h3>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="content">
+            <p>
+              A benefit of motion tracks as a representation is that they allow
+              for positive transfer of motions captured in human demonstrations
+              to an embodied agent. This is enabled by
+              <i>explicitly</i> representing human motions within our action
+              space, instead of only implicitly (i.e. via latent embeddings). To
+              this end, we evaluate two variants of MT&#x2011;<i>&pi;</i>
+              (trained on human + robot data vs. robot data only) against DP and
+              ACT for the task of closing a drawer.
+            </p>
+            <h3 class="title is-5">Data</h3>
+            <p>
+              During data collection, we only collect demonstrations with the
+              robot closing the drawer to the right. However, human videos
+              include closing the drawer in both directions.
+            </p>
+
+            <div class="columns is-centered is-vcentered">
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source src="media/drawer/robot_demos.mp4" type="video/mp4" />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  Robot Demos: Only closes the drawer to the right.
+                </p>
+              </div>
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source src="media/drawer/mt_pi_h+r.mp4" type="video/mp4" />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  Human Demos: Closes the drawer in both directions.
+                </p>
+              </div>
+            </div>
+
+            <h3 class="title is-5">Inference</h3>
+            <p>
+              While all policies successfully close the drawer when placed to
+              the right, only MT-$\pi$ trained on human + robot data can
+              generalize to closing the drawer to the left, as it
+              <i>directly</i> leverages the action labels in image space from
+              human demonstrations.
+            </p>
+
+            <div class="columns is-centered is-vcentered">
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source
+                    src="media/drawer/mt_pi_robot_only.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  MT&#x2011;<i>&pi;</i> (Robot Only): No action labels going
+                  left.
+                </p>
+              </div>
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source
+                    src="media/drawer/mt_pi_human_robot.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  MT&#x2011;<i>&pi;</i> (H + R): Generalizes human actions to
+                  the left.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <table
+              id="close_direction_comparison"
+              style="width: 100%; border-collapse: collapse; margin-top: -10px; margin-bottom: -10px; table-layout: fixed;"
+            >
+              <thead>
+                <tr>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black; width: 30%;"
+                  >
+                    Close Direction
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black; width: 17.5%;"
+                  >
+                    DP
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black; width: 17.5%;"
+                  >
+                    ACT
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black; width: 17.5%;"
+                  >
+                    MT-<i>&pi;</i> (Robot Only)
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black; width: 17.5%; background-color: #FFA5004D;"
+                  >
+                    MT-<i>&pi;</i> (H+R)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    Left (In $D_{\text{robot}} \cup D_{\text{human}}$)
+                  </td>
+                  <td><strong>20/20</strong></td>
+                  <td>17/20</td>
+                  <td><strong>20/20</strong></td>
+                  <td style="background-color: #FFA5004D;">
+                    <strong>20/20</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    Right (<em>Only</em> in $D_{\text{human}}$)
+                  </td>
+                  <td>0/10</td>
+                  <td>0/10</td>
+                  <td>0/10</td>
+                  <td style="background-color: #FFA5004D;">
+                    <strong>18/20</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr />
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-5">How Much Data is Enough?</h3>
+          </div>
+        </div>
+
+        <!-- Description and List -->
+        <div class="row is-centered">
+          <p>
+            We evaluate MT&#x2011;<i>&pi;</i> on a medium-complexity task to
+            study the policy's performance under varying amounts of both human
+            and robot data.
+          </p>
+          <br />
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <img src="media/figures/heatmap.png" width="100%" />
+            </div>
+          </div>
+
+          <ul style="text-align: left; margin-top: 15px; margin-left: 40px;">
+            <li>
+              MT&#x2011;<i>&pi;</i> without any human demonstrations matches the
+              success rates of DP and ACT given the same amount of robot
+              demonstrations, suggesting that predicting actions in image-space
+              is a scalable action representation even with just robot data.
+            </li>
+            <li>
+              MT&#x2011;<i>&pi;</i> matches the performance of baselines despite
+              using 40% less minutes of robot demonstrations by leveraging
+              &#x7e;10 minutes of human demonstrations.
+            </li>
+            <li>
+              Even for a fixed, small amount of teleoperated robot
+              demonstrations, MT&#x2011;<i>&pi;</i> can obtain noticeably higher
+              policy performance simply by scaling up human video alone on the
+              order of just minutes.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+    <!-- Failure Modes-->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Video -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Failure Modes</h2>
+            <div class="columns is-vcentered is-centered"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content has-text-centered">
+              <p>
+                Website template borrowed from
+                <a href="https://github.com/nerfies/nerfies.github.io"
+                  >NeRFies</a
+                >
+                and <a href="https://peract.github.io/">PerAct</a> and
+                <a href="https://voxposer.github.io/">VoxPoser</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
