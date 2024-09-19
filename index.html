@@ -410,7 +410,9 @@ code link -->
             <h2 class="title is-3">Data Collection</h2>
 
             <!-- Extracting Motion Tracks -->
-            <h3 class="title is-5">Extracting Motion Tracks</h3>
+            <h3 class="title is-5 has-text-justified">
+              Extracting Motion Tracks
+            </h3>
             <video
               id="system-overview-video"
               class="data-collection-video"
@@ -451,7 +453,9 @@ code link -->
             </div>
 
             <!-- Extracting Grasps -->
-            <h3 class="title is-5">Extracting Grasps from Human Videos</h3>
+            <h3 class="title is-5 has-text-justified">
+              Extracting Grasps from Human Videos
+            </h3>
             <video
               id="system-overview-video"
               class="hand-grasp-video"
@@ -668,7 +672,7 @@ code link -->
 
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h3 class="title is-5">Low Robot-Data Regime</h3>
+            <h3 class="title is-4">Low Robot-Data Regime</h3>
           </div>
         </div>
 
@@ -693,7 +697,7 @@ code link -->
         <hr />
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h3 class="title is-5">Generalization to Novel Motions</h3>
+            <h3 class="title is-4">Generalization to Novel Motions</h3>
           </div>
         </div>
 
@@ -868,7 +872,7 @@ code link -->
         <hr />
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h3 class="title is-5">How Much Data is Enough?</h3>
+            <h3 class="title is-4">How Much Data is Enough?</h3>
           </div>
         </div>
 
@@ -913,11 +917,173 @@ code link -->
     <!-- Failure Modes-->
     <section class="section">
       <div class="container is-max-desktop">
-        <!-- Video -->
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Failure Modes</h2>
-            <div class="columns is-vcentered is-centered"></div>
+          <h2 class="title is-3">Failure Modes</h2>
+        </div>
+
+        <br />
+
+        <div class="rows is-centered">
+          <div class="row">
+            <h3
+              class="title is-5 has-text-justified"
+              style="margin-bottom: 2px;"
+            >
+              Missed Grasps
+            </h3>
+          </div>
+
+          <div class="row has-text-justified">
+            <p>
+              While hand tracking is a fairly reliable part of our pipeline,
+              detection of human grasps remains an open challenge. Consequently,
+              though the general direction of motion tracks seem reasonable
+              across experiments, the policy sometimes struggles to precisely
+              grasp the desired object. We suspect our heuristic of leveraging
+              foundation models to infer when hands and objects are in contact
+              leads to some imprecision in ground truth human grasp labels,
+              resulting in our policy occasionally prematurely or imprecisely
+              grasping objects.
+            </p>
+          </div>
+
+          <br />
+          <div class="columns is-centered is-vcentered">
+            <div class="column is-half">
+              <video class="data-video" autoplay muted loop controls>
+                <source
+                  src="media/failure_modes/missed_grasp_sock.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p class="has-text-centered" style="margin-top: 2px;">
+                Grasp misses high and track continues to the right.
+              </p>
+            </div>
+            <div class="column is-half">
+              <video class="data-video" autoplay muted loop controls>
+                <source
+                  src="media/failure_modes/missed_grasp_serve.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p class="has-text-centered" style="margin-top: 2px;">
+                Gripper hits handle, knocking it to the side.
+              </p>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <hr />
+        <div class="rows is-centered">
+          <div class="row">
+            <h3
+              class="title is-5 has-text-justified"
+              style="margin-bottom: 2px;"
+            >
+              Track Disagreements
+            </h3>
+          </div>
+
+          <div class="row has-text-justified">
+            <p>
+              MT-<i>&pi;</i> makes predictions on one image at a time and
+              handles different viewpoints independently, thus it does not
+              explicitly enforce consistency between tracks across separate
+              views, which can lead to triangulation errors that produce
+              imprecise actions. We demonstrate an extreme example of this using
+              a task that requires the robot to close one drawer on the left,
+              and one drawer on the right. Half the demonstrations close the
+              demonstrations to the left first, and the other half close the
+              drawer to the right first. Thus a possible outcome of training on
+              this data is that one viewpoint predicts the robot closing the
+              left drawer first, while the other predicts the robot closing the
+              right drawer first.
+            </p>
+            <br />
+            <div class="columns is-centered is-vcentered">
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source
+                    src="media/failure_modes/diverging_train.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  Data: 1/2 close left first, 1/2 close right first.
+                </p>
+              </div>
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source
+                    src="media/failure_modes/diverging_test.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  Inference: Disagreement in predictions across views.
+                </p>
+              </div>
+            </div>
+            <p>
+              In this work, we try to ensure that teleoperated demonstrations
+              are as unimodal as possible to encourage consistency in motion
+              recovery. In the future, we can consider more explicitly enforcing
+              viewpoint consistency via auxiliary projection/deprojection
+              losses.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="rows is-centered">
+          <div class="row">
+            <h3
+              class="title is-5 has-text-justified"
+              style="margin-bottom: 2px;"
+            >
+              Common Failures of Baselines
+            </h3>
+          </div>
+
+          <div class="row has-text-justified">
+            <p>
+              We found DP and ACT baselines to generally move in the correct
+              direction but often fail to grasp the object or complete the task.
+              We suspect this is due to the low coverage over possible states by
+              the small amount (~25 trajectories) of robot demonstrations
+              provided in these experiments. In experiments where we scale up
+              the amount of robot demonstrations or when the task is simple
+              enough such that the reset distribution is fully covered, the
+              performances of DP and ACT reach a much higher percentage.
+            </p>
+          </div>
+
+          <br />
+          <div class="columns is-centered is-vcentered">
+            <div class="column is-half">
+              <video class="data-video" autoplay muted loop controls>
+                <source
+                  src="media/failure_modes/act_fork.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p class="has-text-centered" style="margin-top: 2px;">
+                ACT: Misses fork, right general direction.
+              </p>
+            </div>
+            <div class="column is-half">
+              <video class="data-video" autoplay muted loop controls>
+                <source
+                  src="media/failure_modes/dp_fold.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p class="has-text-centered" style="margin-top: 2px;">
+                DP: Cloth lifted too low, but right general direction.
+              </p>
+            </div>
           </div>
         </div>
       </div>
