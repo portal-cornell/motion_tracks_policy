@@ -345,3 +345,35 @@ li {
   font-weight: bold;
   color: #333; /* Adjust the color as needed */
 }
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.left-column, .right-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+.right-column .nested-columns {
+  display: flex;
+  height: 100%;
+  margin: 0 -5px; /* Negative margin to counteract padding in video-wrapper */
+}
+.video-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px; /* Small padding for minimal separation */
+}
+.data-video {
+  flex: 1;
+  object-fit: cover;
+  width: 100%;
+}
+.video-description {
+  margin-top: 10px;
+  text-align: center;
+}

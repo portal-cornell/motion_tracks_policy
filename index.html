@@ -716,22 +716,44 @@ code link -->
               include closing the drawer in both directions.
             </p>
 
-            <div class="columns is-centered is-vcentered">
-              <div class="column is-half">
-                <video class="data-video" autoplay muted loop controls>
-                  <source src="media/drawer/robot_demos.mp4" type="video/mp4" />
-                </video>
-                <p class="has-text-centered" style="margin-top: 2px;">
-                  Robot Demos: Only closes the drawer to the right.
-                </p>
-              </div>
-              <div class="column is-half">
-                <video class="data-video" autoplay muted loop controls>
-                  <source src="media/drawer/mt_pi_h+r.mp4" type="video/mp4" />
-                </video>
-                <p class="has-text-centered" style="margin-top: 2px;">
-                  Human Demos: Closes the drawer in both directions.
-                </p>
+            <div class="container">
+              <div class="video-container">
+                <div class="left-column">
+                  <div class="video-wrapper">
+                    <video class="data-video" autoplay muted loop controls>
+                      <source
+                        src="media/drawer/robot_demos.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <p class="video-description">
+                      Robot Demos: Only closes the drawer to the right.
+                    </p>
+                  </div>
+                </div>
+                <div class="right-column">
+                  <div class="nested-columns">
+                    <div class="video-wrapper">
+                      <video class="data-video" autoplay muted loop controls>
+                        <source
+                          src="media/drawer/human_demos_left.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                    <div class="video-wrapper">
+                      <video class="data-video" autoplay muted loop controls>
+                        <source
+                          src="media/drawer/human_demos_right.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                  </div>
+                  <p class="video-description">
+                    Human Demos: Closes the drawer in both directions.
+                  </p>
+                </div>
               </div>
             </div>
 
