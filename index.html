@@ -473,15 +473,15 @@ code link -->
                 pixel-wise mask of the object using
                 <a href="https://arxiv.org/abs/2303.05499" target="_blank"
                   >GroundingDINO</a
-                >GroundingDINO and
+                >
+                and
                 <a href="https://ai.meta.com/sam2/" target="_blank">SAM 2</a>.
                 Then, if the number of pixels between the object mask and the
-                keypoints on the thumb plus any one of the other fingertips
-                falls below some threshold, we set $g_t^{(i)} = 1$. By loosely
-                matching the positioning and ordering of keypoints between the
-                human hand and robot gripper, we create an explicit
-                correspondence between human and robot action representations in
-                the image plane.
+                keypoints on the fingertips fall below some threshold, we assume
+                a grasp. By loosely matching the positioning and ordering of
+                keypoints between the human hand and robot gripper, we create an
+                explicit correspondence between human and robot action
+                representations in the image plane.
               </p>
             </div>
           </div>
